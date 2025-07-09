@@ -1,0 +1,6 @@
+ProductSubcategoryID,ProductSubcategory,ProductCategoryID
+0,Business,4
+1,Gold,0
+2,Platinum,2
+3,Standard,3
+4,Student,4

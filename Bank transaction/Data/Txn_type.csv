@@ -1,0 +1,7 @@
+TransactionTypeID,TransactionType
+0,Card Payment
+1,Deposit
+2,Fee
+3,Loan Payment
+4,Transfer
+5,Withdrawal
