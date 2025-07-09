@@ -35,6 +35,7 @@ Bank-Transaction-Analysis/
 * **Python** (data cleaning)
 * **Power BI** (for building the final interactive dashboard and storytelling)
 * **Chatgpt** (For banking research)
+* **Figma** (For report template design)
 
 
 ---
