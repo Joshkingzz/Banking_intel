@@ -24,6 +24,7 @@ Bank-Transaction-Analysis/
 ├── 📂 SQL/              # SQL scripts used for data transformation & analysis
 ├── 📂 Python/           # Python notebooks/scripts for preprocessing
 ├── 📂 PowerBI/          # Raw Power BI file (.pbix)
+├── 📂 Report/           # contains descriptive analysis and answers to questions asked by client
 └── README.md             # Project summary and navigation
 ```
 
