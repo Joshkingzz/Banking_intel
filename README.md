@@ -1,6 +1,6 @@
  📊 Bank Transaction Data Analysis Project
 
-Welcome to the **Bank Transaction Data Analysis** repository. This project showcases a full-stack data analytics pipeline — from **data cleaning** to **database querying**, and finally to **interactive dashboard reporting** — combining the power of **SQL**, **Python**, and **Power BI**.
+Welcome to the **Bank Transaction Data Analysis** repository. This project showcases a full-stack data analytics pipeline from **data cleaning** to **database querying**, and finally to **interactive dashboard reporting** combining the power of **SQL**, **Python**, and **Power BI**.
 
 ## 🔍 Project Overview
 
