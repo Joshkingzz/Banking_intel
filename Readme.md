@@ -53,9 +53,7 @@ Bank-Transaction-Analysis/
 
 ## 📊 Final Report & Visualization
 
-The interactive dashboard and business storytelling for this project were created using **Power BI** and are **hosted on my personal portfolio website**:
-
-🔗 **[Click here to view the full report](https://www.datascienceportfol.io/joshkvngs)**
+The interactive dashboard and business storytelling for this project were created using **Power BI** and is hosted here **@** 🔗 **[Click here to view the full report](https://github.com/Joshkingzz/Banking_intel/blob/main/Report.md)**
 
 ---
 
