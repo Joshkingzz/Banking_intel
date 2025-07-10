@@ -6,6 +6,12 @@ This analysis uncovers customer behavior, transaction trends, revenue drivers, a
 
 > **Tools Used**: SQL Server (data manipulation, joins, window functions, correlation), Power BI (recommended for visualization)
 
+![Image](https://github.com/user-attachments/assets/44724e96-3df5-40fe-9354-8dc0c9e2fa2f)
+![Image](https://github.com/user-attachments/assets/9a52cacb-e914-4417-9137-acfd64a519c9)
+![Image](https://github.com/user-attachments/assets/fa9daba3-a784-4e4d-9c4a-01d02bebcbe2)
+![Image](https://github.com/user-attachments/assets/67376fad-2f65-461b-8769-0038e40dd360)
+![Image](https://github.com/user-attachments/assets/42cabb9a-2a78-47db-b45c-6e1050920d33)
+
 ---
 
 ## 🧰 Methodology
