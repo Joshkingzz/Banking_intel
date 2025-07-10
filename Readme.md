@@ -25,7 +25,7 @@ Bank-Transaction-Analysis/
 ├── 📂 SQL/              # SQL scripts used for data transformation & analysis
 ├── 📂 Python/           # Python notebooks/scripts for preprocessing
 ├── 📂 PowerBI/          # Raw Power BI file (.pbix)
-├── 📂 Report/           # contains descriptive analysis and answers to questions asked by client
+├── Report.md            # contains descriptive analysis and answers to questions asked by client
 └── README.md             # Project summary and navigation
 ```
 
@@ -54,7 +54,7 @@ Bank-Transaction-Analysis/
 
 ## 📊 Final Report & Visualization
 
-The interactive dashboard and business storytelling for this project were created using **Power BI** and is hosted here **@** 🔗 **[View Full report](https://github.com/Joshkingzz/Banking_intel/blob/main/Report.md)**
+The interactive dashboard and business storytelling for this project were created using **Power BI** and is hosted here **@** 🔗 **[View Full report](https://github.com/Joshkingzz/Banking_intel/blob/main/Report.md)** or **[Report Visualization](https://app.powerbi.com/view?r=eyJrIjoiOTdjNzBlZWQtZWQxNy00ZjUzLTgwYmItNGEzMjAxOTFkYWE3IiwidCI6IjdmZTlmYWFmLWM5OTMtNDA3My05NDJkLTRiNGQ3ZDY4NmU5MCJ9)** 
 
 ---
 
