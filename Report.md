@@ -139,9 +139,11 @@ inner join segment as h on j.customersegmentid = h.customersegmentid
 group by h.customersegment
 order by Transaction_Volume desc
 ```
+![Image](https://github.com/user-attachments/assets/f05ae801-b917-49ee-a723-04fa5274a259)
 
-* **Retail customers** showed the highest transaction volume, followed by **Corporate** and **SME** segments.
-* Insight: Retail banking dominates usage frequency, suggesting high engagement from individual users.
+
+* **The Middle Income** showed the highest transaction volume, followed by **High Income** and **Low Income** segments.
+* Insight: The middle Income segment dominates usage frequency, suggesting high engagement from individual users.
 
 ### 2. Most Popular Financial Products by Segment
 ```
@@ -163,12 +165,13 @@ from popular_product
 where rank = 1
 order by Customer_segment
 ```
+![Image](https://github.com/user-attachments/assets/97830026-e219-456a-a4ed-15153d59faef)
 
 * Product preferences varied:
 
-  * **Retail** → Loans & Cards
-  * **Corporate** → Investment accounts
-  * **Student** → Basic savings or educational offers
+  * **The Middle Income Segment** → Credit Cards
+  * **The High Income Segment** → Savings Account
+  * **The Low Income Segment** → Savings Account
 * Insight: Tailored product offerings per segment improve alignment and engagement.
 
 ### 3. Correlation Between Credit Score, Fees, and Frequency
@@ -204,12 +207,12 @@ select
     corr_Accumulated_fees
 from correlation_calc;
 ```
+![Image](https://github.com/user-attachments/assets/ac42aa48-3e2b-4c64-9968-eda4ee76474e)
+![Image](https://github.com/user-attachments/assets/2dc8b6b9-b7d8-4803-85de-e58b1241da79)
 
 * Calculated **Pearson correlation**:
 
-  * **Customer Score ↔ Fees**: Moderate negative correlation (high credit score = fewer fees)
-  * **Customer Score ↔ Frequency**: Low positive correlation
-* Insight: Lower-scoring customers incur more penalty fees, indicating riskier profiles.
+  * There was no correlation
 
 ---
 
@@ -223,6 +226,8 @@ inner join txn_type as i on j.transactiontypeid = i.transactiontypeid
 group by i.TransactionType
 order by Transaction_volume desc
 ```
+![Image](https://github.com/user-attachments/assets/23b12f04-0ebe-48d6-a87c-ee244f87222b)
+
 ```
 select i.TransactionType, sum(Amt) as Transaction_Amount from 
 fact as j
@@ -230,9 +235,9 @@ inner join txn_type as i on j.transactiontypeid = i.transactiontypeid
 group by i.TransactionType
 order by Transaction_Amount desc
 ```
+![Image](https://github.com/user-attachments/assets/aec28c21-1662-44bf-9da3-e21132d951b8)
 
-* **Card payments and transfers** led in volume and transaction amount.
-* Insight: Non-cash channels are highly preferred.
+* **Withdrawals** recorded the highest transaction volume and value, indicating a strong reliance on cash access.
 
 ### 2. Transaction Hotspots
 ```
@@ -242,8 +247,10 @@ group by a.BranchCity
 order by Transaction_Volume desc
 ```
 
+![Image](https://github.com/user-attachments/assets/23f09df7-9ff6-4a44-ab44-50b3cc1301c2)
+
 * **Major urban branches** showed significantly higher transaction volumes.
-* Cities like **Lagos**, **Abuja**, and **Accra** emerged as hotspots.
+* Cities like **Barcelona**, **Murcia**, and **Malaga** emerged as hotspots while cities like **Valencia**, and **Bilbao** emerged as underperformers.
 
 ### 3. Channel Usage Patterns
 ```
@@ -253,8 +260,8 @@ group by d.Channel
 order by transaction_frequency desc
 ```
 
-* **ATM** and **Mobile banking** were the most used channels.
-* **Branch banking** had low frequency, indicating a shift to digital.
+![Image](https://github.com/user-attachments/assets/98889ab3-6e43-4165-8b4c-76b844244455)
+* While all channels have relatively balanced usage, **Mobile banking** edges ahead, highlighting a shift towards convenience-driven digital solutions. Traditional channels like **Branch and ATM** still retain substantial usage, reflecting a hybrid behavior among customers. 
 
 ---
 
@@ -267,9 +274,11 @@ inner join txn_type as i on j.transactiontypeid = i.transactiontypeid
 group by i.TransactionType
 order by Accumulated_fees desc
 ```
+![Image](https://github.com/user-attachments/assets/b6f30614-b856-48fb-ae42-b2143e7f021b)
 
-* **Late loan payments** and **international transfers** generated the highest fees.
-* Insight: Banks generate most friction-based revenue from penalty or cross-border activity.
+* **Loan Payments** generate the highest accumulated fees by a wide margin, indicating significant revenue from interest or processing charges tied to loans.
+* **Withdrawals, Transfers, and Card Payments** also contribute considerable fees, suggesting these are high-frequency or high-cost services.
+* **Deposits** incur the least fees, consistent with expectations, as deposits are typically low or no-cost services to encourage inflows.
 
 ### 2. Customer Groups With Disproportionate Costs
 ```
@@ -278,6 +287,7 @@ select h.CustomerSegment, count(fee_to_income) as Number_of_affected_customers
     inner join segment as h on j.customersegmentid = h.customersegmentid where fee_to_income >0.15 
 	group by h.CustomerSegment
 ```
+![Image](https://github.com/user-attachments/assets/da866413-b48b-46af-b1b4-b55a5766da32)
 ```
 
 select h.CustomerSegment, count(*) as Number_of_affected_customers
@@ -285,9 +295,10 @@ select h.CustomerSegment, count(*) as Number_of_affected_customers
     inner join segment as h on j.customersegmentid = h.customersegmentid where fee_to_amt > 0.15
 	group by h.CustomerSegment
 ```
+![Image](https://github.com/user-attachments/assets/7e241510-6250-495d-92fb-37d7e362cf6d)
 
-* **SMEs** and **Low-income retail segments** had higher `fee-to-income` and `fee-to-amount` ratios.
-* These users pay **more relative to their capacity**, pointing to the need for more inclusive fee structures.
+* **Low-Income Customers** face a disproportionately high fee-to-income ratio, meaning a larger portion of their limited income goes toward transaction costs. This makes everyday banking relatively more expensive for the most financially vulnerable.
+* Across all segments, many customers are also affected by a high fee-to-transaction amount ratio — with the **Middle-Income Segment** showing the highest number of affected users. This indicates inefficiency in the cost structure, where flat or uniform fees create unfair cost burdens, especially for smaller or moderate transactions.
 
 ### 3. Friction Points by Transaction Type
 ```
@@ -296,16 +307,17 @@ select i.TransactionType, count(*) as Transaction_volume
    inner join txn_type as i on j.transactiontypeid = i.transactiontypeid where fee_to_income >0.15 
 	group by i.transactiontype
 ```
+![Image](https://github.com/user-attachments/assets/9f7451bf-5764-42c2-9f74-a55d21fd997f)
 ```
 
 select i.TransactionType, count(*) as Transaction_volume
     from fact as j
    inner join txn_type as i on j.transactiontypeid = i.transactiontypeid where fee_to_amt >0.15 
 	group by i.transactiontype
-
-* **Manual transactions** and **loan-related operations** had high instances of costly fees.
-* Insight: Targeting these for automation or policy revision could reduce friction.
 ```
+![Image](https://github.com/user-attachments/assets/4ab227b7-ca51-4c02-89fc-a245f1415c75)
+
+* **Loan Payments** account for the highest number of frictions income wise and amount wise, This indicates a major performance and customer experience issue in the loan repayment process. **Transfers, Withdrawals, and Fee** transactions show moderate friction volumes while **Card Payments and Deposits** record the lowest friction volumes and friction rates, indicating that these channels are relatively efficient and reliable.
 
 ---
 
