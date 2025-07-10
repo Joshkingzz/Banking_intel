@@ -1,4 +1,4 @@
-# 🏦 Banking Transaction Analysis Report
+![image](https://github.com/user-attachments/assets/18f06bcc-d9fc-4c6a-803d-09e839c3f6fe)# 🏦 Banking Transaction Analysis Report
 
 ## 📘 Project Overview
 
@@ -335,9 +335,10 @@ inner join [date] as f on j.transactiondateid = f.transactiondateid
 group by year(f.transactiondate), month(f.transactiondate)
 order by txn_count desc, total_amount desc;
 ```
+![Image](https://github.com/user-attachments/assets/83553315-ee09-4d12-93f9-3ce0f4241f65)![Image](https://github.com/user-attachments/assets/8dffb2e0-d1f6-4c1b-9c61-3e2f67df4234)![Image](https://github.com/user-attachments/assets/07e0edc0-3267-4ef9-8714-bdfab6e232fd)
 
-* Peaks observed in **December** and **March** — likely due to holidays and quarterly planning.
-* Slower months: **July** and **August**, possibly reflecting mid-year lulls.
+* Peaks observed in **January**, **April** and **May** 
+* Slower months: **July** and **October**, possibly reflecting mid-year lulls.
 
 ### 2. Offer Recommendations vs. Behavior
 ```
@@ -359,11 +360,11 @@ with matched_data as (
 
 select is_match, count(*) as Counts, round((count(*) * 100.0) / sum(count(*)) OVER (), 2) AS percentage_usage from matched_data group by is_match
 ```
-* Matching analysis showed:
+![Image](https://github.com/user-attachments/assets/44ca2a8c-141d-4911-9495-ab9599a70db6)
 
-  * **\~70% of offers** were aligned with customer subcategory behavior.
-  * Highest match success in **Platinum** and **Student** segments.
-* Insight: Banks are doing fairly well in personalization but still have room for improvement.
+* Matching analysis showed:
+  	* Only 1 in 5 product recommendations (20.85%) were accepted by users, while nearly 80% were rejected.
+
 
 ### 3. Segment and Channel Performance Over Time
 ```
@@ -378,6 +379,8 @@ inner join segment as h on j.customersegmentid = h.customersegmentid
 group by year(f.transactiondate), month(f.transactiondate),h.CustomerSegment
 order by year(f.transactiondate), month(f.transactiondate)
 ```
+![Image](https://github.com/user-attachments/assets/87bd16d3-39ef-4de5-9ac8-bb86fe663822)
+
 ```
 select d.Channel, 
     year(f.transactiondate) as date_year,
@@ -390,15 +393,27 @@ inner join channel as d on j.channelid = d.channelid
 group by year(f.transactiondate), month(f.transactiondate),d.Channel
 order by year(f.transactiondate), month(f.transactiondate)
 ```
-
+![Image](https://github.com/user-attachments/assets/43eb144f-f80d-45b1-9acc-a539efe77399)
 * Segment-wise:
 
-  * **Retail and Student** segments maintained steady growth.
-  * **Corporate** had erratic performance with spikes around fiscal quarters.
+  * All segments show a cyclical pattern, with transaction volume dipping mid-year and rising toward year-end. There is strong growth in total transaction value across all segments between 2023 and 2025. **Middle Income Segment** is the most dynamic group, they drive the highest value and volume, making them key to growth strategy.
+  * **Middle-income customers** are the backbone of engagement. They’re active and contribute significantly to revenue, ideal targets for loyalty programs, cross-sells, or product upgrades.
+  * **High-income customers** require premium services, as their fewer but larger transactions show a preference for quality over frequency.
+  * **Low-income customers**, while lower in value, represent an opportunity for financial inclusion, especially if fees or product barriers are reduced.
+
+
 * Channel-wise:
 
-  * **Mobile** showed exponential growth.
-  * **Branch** transactions declined over time, reinforcing digital migration.
+  * **Mobile** consistently records the highest transaction count, indicating strong customer preference for digital convenience.
+  * **Branch and ATM channels** show stable but slightly declining usage, hinting at gradual migration to digital platforms.
+  * **Online channel** maintains consistent use, often close to Mobile in both volume and value.
+  * **Mobile and Online channels** frequently record high transaction amounts, suggesting growing trust in digital platforms for larger-value transactions.
+  * **Branch** still plays a significant role in high-value transactions, possibly due to in-person services for complex needs.
+  * **ATM** usage remains strong, mostly supporting mid-value transactions, especially for cash needs.
+* Insight:
+* 	**Digital Channels (Mobile + Online):** Dominate in both volume and value, Show strong year-on-year growth in user engagement and trust with **Mobile 		banking**, in particular, becoming a channel of choice for everyday transactions.
+* 	**Traditional Channels (Branch + ATM):** remain important for certain segments and use cases (e.g., cash handling, face-to-face support), **branches** are 	still used for high-value, low-frequency transactions, indicating their role in complex services.
+* 	**2025 May Decline:** A noticeable drop in transaction volume across all channels in May 2025, worth investigating.
 
 ---
 
