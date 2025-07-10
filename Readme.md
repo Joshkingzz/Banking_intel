@@ -22,6 +22,7 @@ The goal was to uncover insights across several business areas:
 Bank-Transaction-Analysis/
 │
 ├── 📂 Data/             # Normalized data tables (CSV or SQL format)
+├── 📂 Images/          # contains images and screenshots
 ├── 📂 SQL/              # SQL scripts used for data transformation & analysis
 ├── 📂 Python/           # Python notebooks/scripts for preprocessing
 ├── 📂 PowerBI/          # Raw Power BI file (.pbix)
