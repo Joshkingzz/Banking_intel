@@ -39,6 +39,7 @@ Bank-Transaction-Analysis/
 * **Power BI** (for building the final interactive dashboard and storytelling)
 * **Chatgpt** (For banking research)
 * **Figma** (For report template design)
+* **Excel Power Query** (For Data normalisation)
 
 
 ---
