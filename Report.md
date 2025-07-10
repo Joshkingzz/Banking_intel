@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/18f06bcc-d9fc-4c6a-803d-09e839c3f6fe)# 🏦 Banking Transaction Analysis Report
+# 🏦 Banking Transaction Analysis Report
 
 ## 📘 Project Overview
 
